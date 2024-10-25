@@ -21,7 +21,7 @@ namespace InfrastructureLayer.Services
         }
         public void Delayed()
         {
-            _backgroundJobClient.Schedule(() => Console.WriteLine("Delayed job"), TimeSpan.FromMinutes(10));
+            _backgroundJobClient.Schedule(() => Console.WriteLine("Delayed job"), TimeSpan.FromSeconds(10));
         }
         public void Recurring()
         {
