@@ -18,9 +18,9 @@ var app = builder.Build();
 // Configure Hangfire dashboard and middleware
 app.UseHangfireDashboard("/hangfire", new DashboardOptions
 {
-    DashboardTitle = "Hangfire Tetorial",
+    //DashboardTitle = "Hangfire Tetorial",// Hangfire Dashboard
     DarkModeEnabled = false,
-    DisplayStorageConnectionString = false,
+    DisplayStorageConnectionString = false, //SQL Server: .@HangfireTestV1 
     Authorization = new[] { new HangfireCustomBasicAuthenticationFilter
         {
             User = "test",
