@@ -1,4 +1,5 @@
 using Hangfire;
+using HangfireBasicAuthenticationFilter;
 using InfrastructureLayer.Extensions;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -17,7 +18,15 @@ var app = builder.Build();
 // Configure Hangfire dashboard and middleware
 app.UseHangfireDashboard("/hangfire", new DashboardOptions
 {
-    //Authorization = new[] { new MyAuthorizationFilter() } 
+    DashboardTitle = "Hangfire Tetorial",
+    DarkModeEnabled = false,
+    DisplayStorageConnectionString = false,
+    Authorization = new[] { new HangfireCustomBasicAuthenticationFilter
+        {
+            User = "test",
+            Pass = "test"
+        }
+    } 
 });
 
 // Configure the HTTP request pipeline.
